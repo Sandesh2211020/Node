@@ -1,26 +1,17 @@
+// comparision form w3 school not here
 
-// -----------------------callBack---------------------
-
-// function getFullName(firstName, lastName, cb){
-//     return cb (`${firstName} ${lastName}`);
-// }
-
-// function makeUpperCb(name){
-//     return name.toUpperCase();
-// }
-
-// let fullName = getFullName('sandesh','Shrestha', makeUpperCb);
-// console.log(fullName);
-
-//-----------------------Map---------------------
-let countries = ['Nepal', 'Bhutan', 'India', 'China'];
-
-function makeCountryUpperCase(countryName){
-    countryName.toUpperCase()
+let value = '';
+if (!value){
+    console.log('print');
 }
 
-let upperCountries = countries.forEach(function (countryName){
-    return makeCountryUpperCase(countryName)
-});
+if (1 == '1'){
+    console.log('Print');
+}
+else{
+    console.log('dont print');
+}
 
-console.log(upperCountries);
+// switch not here
+//while loop not here
+
