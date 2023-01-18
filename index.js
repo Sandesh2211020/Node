@@ -1,17 +1,38 @@
-// comparision form w3 school not here
+// ----------------------------Objects--------------------------------------
 
-let value = '';
-if (!value){
-    console.log('print');
+// let mamal = {
+//     name: 'cow',
+//     age: 15,
+//     color: 'black',
+// };
+
+// console.log(mamal)
+
+
+// let myIntro = {
+//     name : 'Sandesh dai',
+//     sem: '3rd',
+//     age: 19,
+//     color: 'brown',
+//     course: 'BCS'
+// };
+
+// delete myIntro.color;
+
+// console.log(myIntro.color);
+
+
+let nestedObject = {
+    mammal : {
+        name: 'cow ',
+        age: 15,
+        types: ['Type 1', 'Type 2']
+    },
+    birds: {
+        name: "Parrot",
+
+    }
+
 }
 
-if (1 == '1'){
-    console.log('Print');
-}
-else{
-    console.log('dont print');
-}
-
-// switch not here
-//while loop not here
-
+console.log(nestedObject.mammal.types[1])
