@@ -1,47 +1,27 @@
-// //---------------------------for......in object-----------------
+//-----------------Promises----------------------
 
-// let person = {
-//     name: 'sandesh',
-//     college: 'iims',
+// function examplePromise (){
+//     return new Promise(function (resolve, reject){
+//         resolve("Hello World")
+//     });
 // }
 
-// // let keys = Object.keys(person);
-// // for (key of keys){
-// //     console.log(`value for keys: ${key} is ${person[key]}`)
-// // }
 
 
-// for (key in person){
-//     console.log(`value for keys: ${key} is ${person[key]}`)
-// }
+const examplePromise = () =>{
+    return new Promise((resolve, reject) => {
+        reject("Hello World")
+        
+    });
+};
 
-//--------------------------- Timeout ------------------------------------
-
-// let timeout =  setTimeout(function example() {
-// 	console.log('this function will be called after 1000 milisecond or 1 second');
-// },1000);
-
-//With function
-
-// function example(){
-//     console.log('Sup hello')
-// }
-
-// let Timeout = setTimeout(example,1000)
-
-// clearTimeout(Timeout);
-
-//-------------------------- Set interval ----------------------------------------
-
-// let counter = 0;
-
-// const interval = setInterval(function(){
-//     counter += 1;
-//     console.log(`current counter is: ${counter}`);
-//     if (counter >= 10){
-//         clearInterval(interval);
-//     }
-// },1000)
-
-
-
+examplePromise()
+.then(function(result){
+    console.log("Result is: ",result);
+})
+.catch((error) => {
+    console.log("Error: " ,error);
+})
+.finally(() => {
+    console.log("Runnnnnnn");
+})
