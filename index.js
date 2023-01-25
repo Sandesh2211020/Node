@@ -1,59 +1,72 @@
-//----------------------Promise part 2-------------------------------------
-
-let promise1 = () => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve("hello")
-        }, 1000)
-    })
-};
-
-let promise2 = () => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve("world")
-        }, 2000)
-    })
-};
-
-//---------------------Ez method---------------------------------
-// let(name, age) = {
-//     name = "Sandesh",
-//     age = 19,
-// }
-
-// let arr = ["hello", "world"]
-// let [first, second] = arr
-// console.log(first);
-
-
-// const arrayOfPromises = [promise1(), promise2()]
-// Promise.all(arrayOfPromises)
-// .then(([promise1Value, promise2Value])=> {
-//     console.log(promise1Value);
-//     console.log(promise2Value);
-// })
-
-//-------------------async and await----------------------
-
-const resultFunction = async () => {
-    try {
-        // let promise1Value = await promise1();
-        // let promise2Value = await promise2();               // 3 second complete time.
-        let [promise1Value, promise2Value] = await Promise.all([
-            promise1(),
-            promise2(),
-        ]); // complete in 2 second.
-
-        console.log(promise1Value, promise2Value);
-    } catch (error) {
-        console.log(error);
+const users =[
+    {
+        id: 1,
+        name: "Sandesh",
+    },{
+        id: 2,
+        name: "Aayos",
+    },
+    {
+        id: 3,
+        name: "talu",
     }
-}
+]
 
-resultFunction();
+const getUserById = (id) => {
+    return new Promise((resolve, reject) => {
+        let result = users.find((user) => user.id === id);~
+        if (result) {
+            resolve(result);
+        }
+        reject("User not found");
+    });
+};
 
+const updateName = (id, name) => {
+    return new Promise((resolve, reject) => {
+        users.forEach((user, index) => {
+            if (user.id === id) {
+                users[index] = {
+                    id: id,
+                    name: name,
+                };
+            }
+        });
+        resolve(users);
+    });
+};
 
+// getUserById(1)
+// .then((result) => {
+// return updateName(result.id, "Sita");
+// })
+// .then((result) => {
+// return getUserById(100);
+// })
+// .then((result) => {
+// console.log(`User with id ${result.id} is ${result.name}`);
+// })
+// .catch((error) => {
+// console.log("Error: ", error);
+// });
 
+// updateName(2, "Sita")
+// .then((result) => {
+// console.log("updated users: ", result);
+// })
+// .catch((error) => {
+// console.log("Error: ", error);
+// });
 
-
+let asyncUpdate = async () => {
+    try {
+        let user = await getUserById(1);
+        let result = await updateName(user.id, "Sita");
+        let updatedUser = await getUserById(1);
+        console.log("result", result);
+        console.log("updatedUser", updatedUser);
+    } catch (err) {
+        console.log("Error: ", err);
+    }
+};
+asyncUpdate();
